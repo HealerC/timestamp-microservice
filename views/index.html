@@ -16,8 +16,8 @@
     <div class="container">
       <h3>Example Usage:</h3>
       <ul>
-        <li><a href="api/timestamp/2000-05-27">[project url]/api/timestamp/<span>2000-05-27</span></a></li>
-        <li><a href="api/timestamp/959385600000">[project url]/api/timestamp/<span>959385600000</span></a></li>
+        <li><a href="api/timestamp/2000-05-27">https://timestamp-microservice.freecodecamp.rocks/api/timestamp/<span>2000-05-27</span></a></li>
+        <li><a href="api/timestamp/959385600000">https://timestamp-microservice.freecodecamp.rocks/api/timestamp/<span>959385600000</span></a></li>
       </ul>
 
       <h3>Example Output:</h3>
@@ -26,14 +26,14 @@
       </p>
     </div>
 
-    <h2>or</h2>
+    <h2 id="or">or</h2>
 
     <form action="api/timestamp/" method="post">
       <label for="iso-date">Date
-        <input type="date" name="date" id="iso-date" placeholder="2000-05-27" />
+        <input type="date" name="date" id="iso-date" placeholder="2000-05-27" size="30" />
       </label>
       <label for="unix">Seconds since unix time
-        <input type="number" name="unix" id="unix" placeholder="959385600000" /> 
+        <input type="number" name="unix" id="unix" placeholder="959385600000" size="30" /> 
       </label>
       <button type="submit">Post</button>
     </form>

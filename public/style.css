@@ -1,16 +1,19 @@
 /****** Main Styling ******/
-
+:root {
+	--blue: #00AFEF;
+}
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	color: #222;
-	background-color: #FaFaFa;
+	background-color: #EEEFEF;
 	text-align: center;
 	line-height: 1.4em;
 }
 
+h1 {
+	color: var(--blue);
+}
 .container {
-	padding: 0;
 	margin-top: 40px;
 }
 
@@ -19,7 +22,10 @@ h3 {
 }
 
 hr {
-	margin: 25px;
+	width: 63%;
+	margin: auto;
+	color: white;
+	border: 2px solid white;
 }
 
 .footer {
@@ -29,7 +35,7 @@ hr {
 code {
   font-family: monospace;
   padding: 2px;
-  color: black;
+  color: OrangeRed;
   background-color: #fff;
 }
 
@@ -41,6 +47,38 @@ li {
   margin-bottom: 0.5em;
 }
 
-a {
+a:link, a:visited {
 	color: #2574A9;
+	text-decoration: none;
+}
+a:hover, a:active {
+	text-decoration: underline;
+}
+a span {
+	font-weight: bold;
+	font-style: italic;
+}
+h2#or {
+	color: var(--blue);
+	font-style: italic;
+	margin: 1em auto;
+	padding-bottom: 0.3em;
+	border-bottom: 4px solid white;
+	width: max-content;
+}
+label, input {
+	display: block;
+}
+label {
+	font-weight: bold;
+}
+input {
+	margin: 0 auto 2em;
+	width: 20em;
+	text-align: center;
+}
+button {
+	background-color: OrangeRed;
+	color: white;
+	padding: 0.3 0.5em;
 }
