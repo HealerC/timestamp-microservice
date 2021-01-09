@@ -10,22 +10,37 @@
 
    <body>
     <h1>Timestamp Microservice</h1>
+    
     <hr />
+    
     <div class="container">
       <h3>Example Usage:</h3>
       <ul>
-        <li><a href="api/timestamp/2015-12-25">[project url]/api/timestamp/2015-12-25</a></li>
-        <li><a href="api/timestamp/1451001600000">[project url]/api/timestamp/1451001600000</a></li>
+        <li><a href="api/timestamp/2000-05-27">[project url]/api/timestamp/<span>2000-05-27</span></a></li>
+        <li><a href="api/timestamp/959385600000">[project url]/api/timestamp/<span>959385600000</span></a></li>
       </ul>
 
       <h3>Example Output:</h3>
       <p>
-        <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
+        <code>{"unix":959385600000, "utc":"Sat, 27 May 2000 00:00:00 GMT"}</code>
       </p>
     </div>
+
+    <h2>or</h2>
+
+    <form action="api/timestamp/" method="post">
+      <label for="iso-date">Date
+        <input type="date" name="date" id="iso-date" placeholder="2000-05-27" />
+      </label>
+      <label for="unix">Seconds since unix time
+        <input type="number" name="unix" id="unix" placeholder="959385600000" /> 
+      </label>
+      <button type="submit">Post</button>
+    </form>
+
     <div class="footer">
       <p>
-        By <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a>
+        By <a href="https://www.github.com/healerC/">Uyioghosa</a>
       </p>
     </div>
   </body>
