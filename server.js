@@ -27,6 +27,52 @@ app.get("/api/hello", function (req, res) {
 
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
+// APP
+app.get("/api/timestamp/:date", (req, res, next) => {
+	let data = req.params.date;
+	validateDate(data, req);
+	next();
+}, (req, res) => {
+	handleResponse(req, res);
+});
+
+app.get("/api/timestamp/", (req, res, next) => {
+	let data = req.query.date;
+	validateDate(data, req);
+	next();
+}, (req, res) => {
+	handleResponse(req, res);
+});
+
+function validateDate(data, req) {
+	let date = {};
+	if (data == +data) {
+		data = +data;
+	}
+	if (data) {
+		date = new Date(data);
+	} else {
+		date = new Date();
+	}
+
+	if (date.toUTCString() === "Invalid Date") {
+		req.error = date.toUTCString();
+	} else {
+		req.date = date;
+	}
+}
+
+function handleResponse(req, res) {
+	if (req.error) {
+		res.json({error: req.error});
+	} else {
+		res.json({
+			unix: req.date.getTime(),
+			utc: req.date.toUTCString()
+		});
+	}
+}
