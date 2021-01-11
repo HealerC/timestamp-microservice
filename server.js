@@ -32,8 +32,9 @@ var listener = app.listen(3000, function () {
 });
 
 // APP
-app.get("/api/timestamp/:date", (req, res, next) => {
+app.get("/api/timestamp/:date?", (req, res, next) => {
 	let data = req.params.date;
+	console.log("Request: " + data);
 	validateDate(data, req);
 	next();
 }, (req, res) => {
@@ -49,21 +50,23 @@ app.get("/api/timestamp/", (req, res, next) => {
 });
 
 function validateDate(data, req) {
+	console.log("From validate date: ", data);
 	let date = {};
-	if (data == +data) {
-		data = +data;
+	if (data == Number(data)) {
+		data = Number(data);
 	}
 	if (data) {
 		date = new Date(data);
 	} else {
 		date = new Date();
 	}
-
+	console.log("After conv to obj: " + date)
 	if (date.toUTCString() === "Invalid Date") {
 		req.error = date.toUTCString();
 	} else {
 		req.date = date;
 	}
+	console.log("At the end of the day: ", req.error, " ", req.date);
 }
 
 function handleResponse(req, res) {
@@ -72,7 +75,7 @@ function handleResponse(req, res) {
 	} else {
 		res.json({
 			unix: req.date.getTime(),
-			utc: req.date.toUTCString()
+			utc: req.date
 		});
 	}
 }
