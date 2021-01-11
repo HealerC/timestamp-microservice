@@ -71,12 +71,11 @@ label, input {
 }
 label {
 	font-weight: bold;
-	width: max-content;
 	margin: auto;
 }
 input {
 	margin: 0 auto 2em;
-	width: 20em;
+	width: 30vw;
 	text-align: center;
 }
 button {
